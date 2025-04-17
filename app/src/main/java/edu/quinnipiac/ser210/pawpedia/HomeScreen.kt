@@ -2,12 +2,14 @@ package edu.quinnipiac.ser210.pawpedia
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -61,7 +63,7 @@ fun HomeScreen() {
                         )
                     },
                     navigationIcon = {
-                        IconButton(onClick = {/*Put back navigation here*/}) {
+                        IconButton(onClick = {print("Back Button Clicked")}) {
                             Icon(
                                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                                 contentDescription = "Back Button"
@@ -69,7 +71,7 @@ fun HomeScreen() {
                         }
                     },
                     actions = {
-                        IconButton(onClick = {/*Add share functionality here*/}) {
+                        IconButton(onClick = {print("Share Button Clicked")}) {
                             Icon(
                                 imageVector = Icons.Filled.Share,
                                 contentDescription = "Share Button"
@@ -85,21 +87,23 @@ fun HomeScreen() {
                 modifier = Modifier
                     .offset(y=100.dp)
             ) {
-                sizeCard("Large Dogs", R.drawable.largedog)
-                sizeCard("Medium Dogs", R.drawable.mediumdog)
-                sizeCard("Small Dogs", R.drawable.smoldog)
+                sizeCard("Large Dogs", R.drawable.largedog) {println("Clicked Large Dogs")}
+                sizeCard("Medium Dogs", R.drawable.mediumdog) {println("Clicked Medium Dogs")}
+                sizeCard("Small Dogs", R.drawable.smoldog) {println("Clicked Small Dogs")}
             }
         }
     }
 }
 
 @Composable
-fun sizeCard(dog:String, imgID:Int) {
+fun sizeCard(dog:String, imgID:Int, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .border(width = 3.dp, color = Color.Black, shape = RectangleShape),
-        contentAlignment = Alignment.Center
+            .padding(vertical = 5.dp)
+            .border(width = 3.dp, color = Color.Black, shape = RectangleShape)
+            .clickable{onClick()},
+        contentAlignment = Alignment.Center,
     ) {
         Image(
             painterResource(imgID),

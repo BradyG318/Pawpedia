@@ -33,7 +33,7 @@ abstract class DogDatabase : RoomDatabase() {
                                         breed_name = "Shih Tzu",
                                         cover_photo_res_id = R.drawable.shihtzu, // make sure this image is in drawable
                                         tag_list = "toy, companion",
-                                        size_index = 1,
+                                        size_index = 0,
                                         allergy_info = "Low allergen",
                                         average_weight = 12.0,
                                         description = "The Shih Tzu is a toy dog breed known for its long, silky coat and sweet personality."
@@ -44,7 +44,7 @@ abstract class DogDatabase : RoomDatabase() {
                                         breed_name = "Irish Wolfhound",
                                         cover_photo_res_id = R.drawable.irishwolfhound, // make sure this image is in drawable
                                         tag_list = "hound, giant",
-                                        size_index = 3,
+                                        size_index = 2,
                                         allergy_info = "Moderate allergen",
                                         average_weight = 140.0,
                                         description = "Irish Wolfhounds are the tallest of all dog breeds, known for their gentle nature and giant size."
