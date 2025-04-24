@@ -9,4 +9,7 @@ import androidx.room.*
 
         @Query("SELECT * FROM dog")
         suspend fun getAllDogs(): List<Dog>
+
+        @Query("SELECT * FROM dog WHERE size_index = :sizeIndex")
+        suspend fun getDogsBySize(sizeIndex: Int): List<Dog>
     }

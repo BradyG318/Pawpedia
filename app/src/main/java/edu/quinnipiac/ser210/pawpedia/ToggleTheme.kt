@@ -11,10 +11,10 @@ import edu.quinnipiac.ser210.pawpedia.ui.theme.PawpediaTheme
 fun ToggleTheme() {
     var isDarkTheme by remember { mutableStateOf(false) }
 
-    PawpediaTheme(darkTheme = isDarkTheme) {
-        HomeScreen(
-            isDarkTheme = isDarkTheme,
-            onToggleTheme = { isDarkTheme = !isDarkTheme }
-        )
-    }
+//    PawpediaTheme(darkTheme = isDarkTheme) {
+//        HomeScreen(
+//            isDarkTheme = isDarkTheme,
+//            onToggleTheme = { isDarkTheme = !isDarkTheme }
+//        )
+//    }
 }
