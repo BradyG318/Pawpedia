@@ -7,6 +7,6 @@ import androidx.room.*
         @Insert
         suspend fun insertDog(dog: Dog)
 
-        @Query("SELECT * FROM dogs")
+        @Query("SELECT * FROM dog")
         suspend fun getAllDogs(): List<Dog>
     }
