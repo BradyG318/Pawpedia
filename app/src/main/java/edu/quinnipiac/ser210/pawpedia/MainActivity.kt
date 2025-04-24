@@ -17,7 +17,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            HomeScreen()
+            HomeScreen(isDarkTheme = false,
+                onToggleTheme = {})
         }
     }
 }
