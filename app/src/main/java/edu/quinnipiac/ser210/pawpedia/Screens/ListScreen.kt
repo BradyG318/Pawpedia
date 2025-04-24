@@ -35,7 +35,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextOverflow
@@ -45,8 +44,6 @@ import androidx.compose.ui.unit.sp
 import edu.quinnipiac.ser210.pawpedia.DogViewModel
 import edu.quinnipiac.ser210.pawpedia.R
 import edu.quinnipiac.ser210.pawpedia.SQL.Dog
-import edu.quinnipiac.ser210.pawpedia.SQL.DogDataAccess
-import edu.quinnipiac.ser210.pawpedia.SQL.DogDatabase
 import edu.quinnipiac.ser210.pawpedia.ui.theme.PawpediaTheme
 
 
@@ -135,7 +132,10 @@ fun dogCard(dog: Dog, onClick: () -> Unit) {
             contentScale = ContentScale.Crop,
             alignment = Alignment.TopCenter
         )
-        Column() {
+        Column(
+            modifier = Modifier
+                .padding(4.dp)
+        ) {
             Text( //Breed Name
                 text = dog.breed_name,
                 fontSize = 40.sp

@@ -61,6 +61,17 @@ abstract class DogDatabase : RoomDatabase() {
                                         description = "Irish Wolfhounds are the tallest of all dog breeds, known for their gentle nature and giant size."
                                     )
                                 )
+                                dao.insertDog(
+                                    Dog(
+                                        breed_name = "Goldendoodle",
+                                        cover_photo_res_id = R.drawable.mediumdog, // make sure this image is in drawable
+                                        tag_list = "High-energy, Family-loving, Curious",
+                                        size_index = 1,
+                                        allergy_info = "Low allergen",
+                                        average_weight = 30.0,
+                                        description = "Goldendoodles are the cleaning-concious family's Retreiver. With very similar personality to their half cousin's and none of the shedding, these fluffballs are perfect for a family looking for an easier Retreiver."
+                                    )
+                                )
                             }
                         }
                     })

@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     val dogViewModel: DogViewModel = viewModel()
-    ListScreen(size = 0, viewModel = dogViewModel, isDarkTheme = false, onToggleTheme = {})
+    ListScreen(size = 1, viewModel = dogViewModel, isDarkTheme = false, onToggleTheme = {})
 }
 
 @Preview(showBackground = true)
