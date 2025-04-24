@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Card
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -44,7 +45,10 @@ import edu.quinnipiac.ser210.pawpedia.ui.theme.PawpediaTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    isDarkTheme: Boolean,
+    onToggleTheme: () -> Unit
+) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
     PawpediaTheme {
         Scaffold(
@@ -52,8 +56,8 @@ fun HomeScreen() {
             topBar = {
                 CenterAlignedTopAppBar(
                     colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                        containerColor= MaterialTheme.colorScheme.primaryContainer,
-                        titleContentColor=MaterialTheme.colorScheme.primary
+                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                        titleContentColor = MaterialTheme.colorScheme.primary
                     ),
                     title = {
                         Text(
@@ -63,7 +67,7 @@ fun HomeScreen() {
                         )
                     },
                     navigationIcon = {
-                        IconButton(onClick = {print("Back Button Clicked")}) {
+                        IconButton(onClick = { println("Back Button Clicked") }) {
                             Icon(
                                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                                 contentDescription = "Back Button"
@@ -71,15 +75,21 @@ fun HomeScreen() {
                         }
                     },
                     actions = {
-                        IconButton(onClick = {print("Share Button Clicked")}) {
+                        IconButton(onClick = { println("Share Button Clicked") }) {
                             Icon(
                                 imageVector = Icons.Filled.Share,
                                 contentDescription = "Share Button"
                             )
                         }
+                        IconButton(onClick = onToggleTheme) {
+                            Icon(
+                                imageVector = Icons.Default.Settings,
+                                contentDescription = "Toggle Theme"
+                            )
+                        }
                     },
                     scrollBehavior = scrollBehavior,
-                    )
+                )
             },
 
         ) {innerPadding->(innerPadding)
@@ -127,8 +137,13 @@ fun sizeCard(dog:String, imgID:Int, onClick: () -> Unit) {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen()
+    PawpediaTheme(darkTheme = false) {
+        HomeScreen(
+            isDarkTheme = false,
+            onToggleTheme = {}
+        )
+    }
 }
