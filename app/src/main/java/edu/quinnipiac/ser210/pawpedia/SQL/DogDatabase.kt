@@ -41,6 +41,17 @@ abstract class DogDatabase : RoomDatabase() {
                                 )
                                 dao.insertDog(
                                     Dog(
+                                        breed_name = "Border Collie",
+                                        cover_photo_res_id = R.drawable.bordercollie, // make sure this image is in drawable
+                                        tag_list = "herding, intelligent",
+                                        size_index = 1, // medium
+                                        allergy_info = "Moderate allergen",
+                                        average_weight = 40.0,
+                                        description = "Border Collies are highly intelligent and energetic dogs originally bred for herding livestock. They excel in obedience and agility and thrive with active owners."
+                                    )
+                                )
+                                dao.insertDog(
+                                    Dog(
                                         breed_name = "Irish Wolfhound",
                                         cover_photo_res_id = R.drawable.irishwolfhound, // make sure this image is in drawable
                                         tag_list = "hound, giant",
