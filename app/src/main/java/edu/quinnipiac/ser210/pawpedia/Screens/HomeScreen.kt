@@ -46,57 +46,35 @@ fun HomeScreen(
     onToggleTheme: () -> Unit
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
-    PawpediaTheme {
-        Scaffold(
-            modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
-            topBar = {
-                CenterAlignedTopAppBar(
-                    colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer,
-                        titleContentColor = MaterialTheme.colorScheme.primary
-                    ),
-                    title = {
-                        Text(
-                            text = "Pawpedia",
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis
-                        )
-                    },
-                    navigationIcon = {
-                        IconButton(onClick = { println("Back Button Clicked") }) {
-                            Icon(
-                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                                contentDescription = "Back Button"
-                            )
-                        }
-                    },
-                    actions = {
-                        IconButton(onClick = { println("Share Button Clicked") }) {
-                            Icon(
-                                imageVector = Icons.Filled.Share,
-                                contentDescription = "Share Button"
-                            )
-                        }
-                        IconButton(onClick = onToggleTheme) {
-                            Icon(
-                                imageVector = Icons.Default.Settings,
-                                contentDescription = "Toggle Theme"
-                            )
-                        }
-                    },
-                    scrollBehavior = scrollBehavior,
-                )
-            },
 
-        ) {innerPadding->(innerPadding)
-            Column(
-                modifier = Modifier
-                    .offset(y=100.dp)
-            ) {
-                sizeCard("Large Dogs", R.drawable.largedog) {println("Clicked Large Dogs")}
-                sizeCard("Medium Dogs", R.drawable.mediumdog) {println("Clicked Medium Dogs")}
-                sizeCard("Small Dogs", R.drawable.smoldog) {println("Clicked Small Dogs")}
-            }
+    Scaffold(
+        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        topBar = {
+            CenterAlignedTopAppBar(
+                title = { Text("Pawpedia") },
+                navigationIcon = {
+                    IconButton(onClick = { println("Back Button Clicked") }) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                    }
+                },
+                actions = {
+                    IconButton(onClick = { println("Share Button Clicked") }) {
+                        Icon(Icons.Filled.Share, contentDescription = "Share")
+                    }
+                    IconButton(onClick = onToggleTheme) {
+                        Icon(Icons.Default.Settings, contentDescription = "Toggle Theme")
+                    }
+                },
+                scrollBehavior = scrollBehavior
+            )
+        }
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier.offset(y = 100.dp)
+        ) {
+            sizeCard("Large Dogs", R.drawable.largedog) { println("Clicked Large Dogs") }
+            sizeCard("Medium Dogs", R.drawable.mediumdog) { println("Clicked Medium Dogs") }
+            sizeCard("Small Dogs", R.drawable.smoldog) { println("Clicked Small Dogs") }
         }
     }
 }
