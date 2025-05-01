@@ -43,7 +43,8 @@ import edu.quinnipiac.ser210.pawpedia.ui.theme.PawpediaTheme
 @Composable
 fun HomeScreen(
     isDarkTheme: Boolean,
-    onToggleTheme: () -> Unit
+    onToggleTheme: () -> Unit,
+    onSizeSelected: (Int) -> Unit
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
 
@@ -72,9 +73,9 @@ fun HomeScreen(
         Column(
             modifier = Modifier.offset(y = 100.dp)
         ) {
-            sizeCard("Large Dogs", R.drawable.largedog) { println("Clicked Large Dogs") }
-            sizeCard("Medium Dogs", R.drawable.mediumdog) { println("Clicked Medium Dogs") }
-            sizeCard("Small Dogs", R.drawable.smoldog) { println("Clicked Small Dogs") }
+            sizeCard("Large Dogs", R.drawable.largedog) { onSizeSelected(2) }
+            sizeCard("Medium Dogs", R.drawable.mediumdog) { onSizeSelected(1) }
+            sizeCard("Small Dogs", R.drawable.smoldog) { onSizeSelected(0) }
         }
     }
 }
@@ -111,13 +112,13 @@ fun sizeCard(dog:String, imgID:Int, onClick: () -> Unit) {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun HomeScreenPreview() {
-    PawpediaTheme(darkTheme = false) {
-        HomeScreen(
-            isDarkTheme = false,
-            onToggleTheme = {}
-        )
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun HomeScreenPreview() {
+//    PawpediaTheme(darkTheme = false) {
+//        HomeScreen(
+//            isDarkTheme = false,
+//            onToggleTheme = {}
+//        )
+//    }
+//}

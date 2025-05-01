@@ -51,9 +51,12 @@ val dogList: List<Dog> = listOf()
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ListScreen(size: Int, viewModel: DogViewModel,
-               isDarkTheme: Boolean,
-               onToggleTheme: () -> Unit) {
+fun ListScreen(
+    size: Int,
+    viewModel: DogViewModel,
+    isDarkTheme: Boolean,
+    onToggleTheme: () -> Unit,
+    onDogSelected: (Int) -> Unit) {
     val dogs by viewModel.dogs.collectAsState()
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
 
@@ -107,7 +110,7 @@ fun ListScreen(size: Int, viewModel: DogViewModel,
                     .offset(y=100.dp)
             ) {
                 items(dogs) { dog ->
-                    dogCard(dog, {println("Clicked on " +dog.breed_name)})
+                    dogCard(dog, {onDogSelected(dog.id)})
                 }
             }
         }
