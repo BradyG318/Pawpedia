@@ -41,6 +41,17 @@ abstract class DogDatabase : RoomDatabase() {
                                 )
                                 dao.insertDog(
                                     Dog(
+                                        breed_name = "Cavapoo",
+                                        cover_photo_res_id = R.drawable.smoldog, // make sure this image is in drawable
+                                        tag_list = "toy, companion, hypoallergenic",
+                                        size_index = 0,
+                                        allergy_info = "Low to moderate allergen",
+                                        average_weight = 15.0,
+                                        description = "The Cavapoo is a crossbreed between a Cavalier King Charles Spaniel and a Poodle, known for its friendly nature, soft curly coat, and suitability for families."
+                                    )
+                                )
+                                dao.insertDog(
+                                    Dog(
                                         breed_name = "Border Collie",
                                         cover_photo_res_id = R.drawable.bordercollie, // make sure this image is in drawable
                                         tag_list = "herding, intelligent",
@@ -48,6 +59,17 @@ abstract class DogDatabase : RoomDatabase() {
                                         allergy_info = "Moderate allergen",
                                         average_weight = 40.0,
                                         description = "Border Collies are highly intelligent and energetic dogs originally bred for herding livestock. They excel in obedience and agility and thrive with active owners."
+                                    )
+                                )
+                                dao.insertDog(
+                                    Dog(
+                                        breed_name = "Goldendoodle",
+                                        cover_photo_res_id = R.drawable.mediumdog, // make sure this image is in drawable
+                                        tag_list = "High-energy, Family-loving, Curious",
+                                        size_index = 1,
+                                        allergy_info = "Low allergen",
+                                        average_weight = 30.0,
+                                        description = "Goldendoodles are the cleaning-concious family's Retreiver. With very similar personality to their half cousin's and none of the shedding, these fluffballs are perfect for a family looking for an easier Retreiver."
                                     )
                                 )
                                 dao.insertDog(
@@ -63,13 +85,13 @@ abstract class DogDatabase : RoomDatabase() {
                                 )
                                 dao.insertDog(
                                     Dog(
-                                        breed_name = "Goldendoodle",
-                                        cover_photo_res_id = R.drawable.mediumdog, // make sure this image is in drawable
-                                        tag_list = "High-energy, Family-loving, Curious",
-                                        size_index = 1,
-                                        allergy_info = "Low allergen",
-                                        average_weight = 30.0,
-                                        description = "Goldendoodles are the cleaning-concious family's Retreiver. With very similar personality to their half cousin's and none of the shedding, these fluffballs are perfect for a family looking for an easier Retreiver."
+                                        breed_name = "Saint Bernard",
+                                        cover_photo_res_id = R.drawable.saintbernard, // make sure this image is in drawable
+                                        tag_list = "working, giant, rescue",
+                                        size_index = 2,
+                                        allergy_info = "High allergen",
+                                        average_weight = 140.0,
+                                        description = "Saint Bernards are large, powerful dogs originally bred for rescue work in the Swiss Alps, known for their loyalty and gentle temperament."
                                     )
                                 )
                             }
