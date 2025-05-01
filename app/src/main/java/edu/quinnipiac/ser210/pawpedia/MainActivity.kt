@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Greeting("Test")
+            ToggleTheme()
         }
     }
 }
@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     val dogViewModel: DogViewModel = viewModel()
-    ListScreen(size = 1, viewModel = dogViewModel, isDarkTheme = false, onToggleTheme = {})
+    ListScreen(size = 0, viewModel = dogViewModel, isDarkTheme = true, onToggleTheme = {})
 }
 
 @Preview(showBackground = true)

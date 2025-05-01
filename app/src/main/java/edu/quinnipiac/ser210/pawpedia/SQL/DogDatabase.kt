@@ -4,13 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import edu.quinnipiac.ser210.pawpedia.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Dog::class], version = 1)
+@Database(entities = [Dog::class], version = 2)
 abstract class DogDatabase : RoomDatabase() {
     abstract fun dogDao(): DogDataAccess
 
@@ -18,6 +19,11 @@ abstract class DogDatabase : RoomDatabase() {
         @Volatile private var INSTANCE: DogDatabase? = null
         fun getDatabase(context: Context): DogDatabase {
             return INSTANCE ?: synchronized(this) {
+                val MIGRATION_1_2 = object: Migration(1, 2) {
+                    override fun migrate(db: SupportSQLiteDatabase) {
+
+                    }
+                }
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     DogDatabase::class.java,
