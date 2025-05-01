@@ -72,7 +72,7 @@ class MainActivity : ComponentActivity() {
                         //load selected dog and display when ready
                         LaunchedEffect(dogId) { viewModel.loadDogById(dogId) }
                         viewModel.selectedDog.collectAsState().value?.let { dog ->
-                            DetailsScreen(dog = dog)
+                            DetailsScreen(dog = dog, onToggleTheme = { isDark = !isDark })
                         }
                     }
                 }

@@ -63,7 +63,7 @@ fun ListScreen(
     LaunchedEffect(size) {
         viewModel.loadDogBySize(size)
     }
-    PawpediaTheme {
+
         Scaffold(
             modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
             topBar = {
@@ -114,7 +114,7 @@ fun ListScreen(
                 }
             }
         }
-    }
+
 }
 
 @Composable

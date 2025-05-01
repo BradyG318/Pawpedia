@@ -1,5 +1,6 @@
 package edu.quinnipiac.ser210.pawpedia.Screens
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -39,6 +40,7 @@ import androidx.compose.ui.unit.sp
 import edu.quinnipiac.ser210.pawpedia.R
 import edu.quinnipiac.ser210.pawpedia.ui.theme.PawpediaTheme
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
@@ -69,7 +71,7 @@ fun HomeScreen(
                 scrollBehavior = scrollBehavior
             )
         }
-    ) { innerPadding ->
+    ) {
         Column(
             modifier = Modifier.offset(y = 100.dp)
         ) {
